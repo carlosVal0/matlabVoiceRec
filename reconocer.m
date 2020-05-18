@@ -1,14 +1,13 @@
-function reconocer(prsFFT,minimumSpike)
+function [Recognized] = reconocer(prsFFT,minimumSpike)
+global Recognized
 
-error = 150;
+error = 100;
 if (max(abs(prsFFT))+error) >= minimumSpike
    
-    disp("Abrir");
+    Recognized = 'abrir';
     %writeDigitalVoltage(ard,'D9',1);
 else
-    disp("No reconocida");
+    Recognized = 'No reconocida';
 end
-
-
 
 end

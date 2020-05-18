@@ -75,7 +75,7 @@ set(handles.axes8,'Color','none','XColor','none','YColor','none');
 set(handles.axes9,'Color','none','XColor','none','YColor','none');
 set(handles.axes10,'Color','none','XColor','none','YColor','none');
 set(handles.axes11,'Color','none','XColor','none','YColor','none');
-set(handles.axes12,'Color','none','XColor','none','YColor','none');
+
 
 % UIWAIT makes interfazu wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -233,7 +233,7 @@ if nr == 0
     title('Your record')
     [prs, prsFFT, prsFFT_freq] = inputVoiceFilter(inputVoice);
     Rec = reconocer(prsFFT,minimumSpike);
-    set(handles.axes12,'Color','white','XColor','black','YColor','black');
+    
     axes(handles.axes12);
     plot(prsFFT_freq,abs(prsFFT));
     grid on

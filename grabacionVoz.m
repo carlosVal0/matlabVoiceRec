@@ -1,9 +1,9 @@
 function [inputVoice, t2, inputVoiceFFT, inputVoice_freq] =  grabacionVoz()
 FS = 44100;
 vr = audiorecorder(44100,24,1);
-disp("Inicio de grabacion");
+
 recordblocking(vr,2);
-disp("Fin de grabacion");
+
 inputVoice = vr.getaudiodata();
 t2 = 0:1/FS:(length(inputVoice)-1)/FS;
 
