@@ -76,7 +76,8 @@ set(handles.axes9,'Color','none','XColor','none','YColor','none');
 set(handles.axes10,'Color','none','XColor','none','YColor','none');
 set(handles.axes11,'Color','none','XColor','none','YColor','none');
 set(handles.axes12,'Color','none','XColor','none','YColor','none');
-
+set(handles.text4,'String',' ');
+set(handles.text5,'String',' ');
 % UIWAIT makes interfazu wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
@@ -221,6 +222,7 @@ if nr == 10
 end
 if nr == 0
     a = arduino;
+    configurePin(a,"D8","DigitalOutput");
     set(handles.text4,'String','Recording');
     [inputVoice, t2, inputVoiceFFT, inputVoice_freq] =  grabacionVoz();
     set(handles.text4,'String','Recording finished');
@@ -236,13 +238,16 @@ if nr == 0
     [prs, prsFFT, prsFFT_freq] = inputVoiceFilter(inputVoice);
     Rec = reconocer(prsFFT,minimumSpike);
     set(handles.axes12,'Color','white','XColor','black','YColor','black');
+    set(handles.axes12,'XLim',[-2 2],'YLim',[-1 1]);
     axes(handles.axes12);
-    plot(prsFFT_freq,abs(prsFFT));
+    plot(prsFFT_freq(1:371),abs(prsFFT(1:371)));
     grid on
     title('your record with filter');
     set(handles.text5,'String',Rec);
     if Rec == "abrir"
-        writePosition(s,1);
         writeDigitalPin(a,"D8",1);
+        pause(2);
+        writePosition(s,1);
     end
+    writePosition(s,0);
 end
