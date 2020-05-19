@@ -13,23 +13,23 @@ function [grafico,freq] = figN(n)
            freq =  abs(y2_fft);
        case 3
             grafico = y3_freq1;
-           freq =  abs(y0_fft);
+           freq =  abs(y3_fft);
        case 4
             grafico = y4_freq1;
-           freq =  abs(y0_fft);
+           freq =  abs(y4_fft);
        case 5
-            grafico = y0_freq0;
-           freq =  abs(y0_fft);       
+            grafico = y5_freq1;
+           freq =  abs(y5_fft);       
        case 6
-            grafico = y0_freq0;
-           freq =  abs(y0_fft);
+            grafico = y6_freq1;
+           freq =  abs(y6_fft);
        case 7
-            grafico = y0_freq0;
-           freq =  abs(y0_fft);
+            grafico = y7_freq1;
+           freq =  abs(y7_fft);
        case 8
-            grafico = y0_freq0;
-           freq =  abs(y0_fft);
+            grafico = y8_freq1;
+           freq =  abs(y8_fft);
        case 9
-            grafico = y0_freq0;
-           freq =  abs(y0_fft);
+            grafico = y9_freq1;
+           freq =  abs(y9_fft);
    end

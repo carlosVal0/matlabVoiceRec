@@ -220,6 +220,7 @@ if nr == 10
     
 end
 if nr == 0
+    a = arduino;
     set(handles.text4,'String','Recording');
     [inputVoice, t2, inputVoiceFFT, inputVoice_freq] =  grabacionVoz();
     set(handles.text4,'String','Recording finished');
@@ -231,6 +232,7 @@ if nr == 0
     plot(t(1:371),y(1:371));
     grid on
     title('Your record')
+    s = servo(a,"D3");
     [prs, prsFFT, prsFFT_freq] = inputVoiceFilter(inputVoice);
     Rec = reconocer(prsFFT,minimumSpike);
     set(handles.axes12,'Color','white','XColor','black','YColor','black');
@@ -239,5 +241,8 @@ if nr == 0
     grid on
     title('your record with filter');
     set(handles.text5,'String',Rec);
-    
+    if Rec == "abrir"
+        writePosition(s,1);
+        writeDigitalPin(a,"D8",1);
+    end
 end
